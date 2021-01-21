@@ -64,3 +64,13 @@ and watermark removal.
 1.Encode<br/>
 2.Code<br/>
 3.Decoder
+![](Autoencoders-architecture.png)
+The decoded image is a lossy reconstruction of the original image. The code part is also known as Bottleneck. There are 
+four hyperparameters that should be set before training, code size, number of layers, number of nodes per layer and loss 
+function
+
+### Sparse Autoencoder
+A sparse autoencoder tries to ensure the neuron is inactive most of the time so the average activation of a neuron is 
+close to 0 so on average the neuron is inactive but whenever it is active it is going to adhere to certain patterns 
+### Stacked Autoencoder
+A stacked autoencoder is a neural network consist several layers of sparse autoencoders
