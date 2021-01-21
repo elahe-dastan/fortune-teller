@@ -19,3 +19,25 @@ is hybrid of smaller ones, some models work better for short-term travels like 1
 long-term travels like 60 minutes.
 
 # Prerequisites
+## Convolutional layers in deep learning neural network
+A convolution is a linear operation that involves the multiplication of a set of weights with the input. This technique
+was designed for two-dimensional input, the multiplication is performed by a two-dimensional array of weights, called a 
+filter or a kernel. The filter is smaller than the input data, and the type of multiplication applied between a 
+filter-sized patch of the input and the filter is a dot product. The filter is applied systematically to each overlapping
+part or filter-sized patch of the input data, left to right , top to bottom. If the filter is designed to detect a specific
+type of feature in the input, then this operation allows the filter an opportunity to discover that feature anywhere in
+the image.
+
+![](Example-of-a-Filter-Applied-to-a-Two-Dimensional-input-to-create-a-Feature-Map.png)
+
+**Note**: If you come from a digital signal processing field or related area of mathematics, you may understand the 
+convolution operation on a matrix as something different. Technically, the convolution as described in the use of 
+convolutional neural networks is actually a “cross-correlation”. Nevertheless, in deep learning, it is referred to as a 
+“convolution” operation.<br/>
+**Example**: below is a hand crafted 3×3 element filter for detecting vertical lines:<br/>
+0.0, 1.0, 0.0<br/>
+0.0, 1.0, 0.0<br/>
+0.0, 1.0, 0.0<br/>
+Applying this filter to an image will result in a feature map that only contains vertical lines. It is a vertical line 
+detector.
+## 
