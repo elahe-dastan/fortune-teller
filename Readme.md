@@ -74,3 +74,19 @@ A sparse autoencoder tries to ensure the neuron is inactive most of the time so 
 close to 0 so on average the neuron is inactive but whenever it is active it is going to adhere to certain patterns 
 ### Stacked Autoencoder
 A stacked autoencoder is a neural network consist several layers of sparse autoencoders
+
+## Kullback-Leibler Divergence
+Entropy shows how much uncertainty is in our distribution. Cross entropy of two distributions will be zero if they are 
+the same and will differ by some amount of bits if they are different. KL is cross entropy minus entropy which means how
+much two distributions differ.
+
+## Greedy Layer-Wise Pretraining in Deep Learning
+
+## Summary Of The Work
+Deep learning algorithms are used to extract inherent features in data and they can discover huge amounts of structure 
+in the data. As a traffic flow process is complicated in nature, deep learning algorithms can represent traffic features
+without prior knowledge. We want to use a stacked autoencoder (SAE) model to learn generic traffic flow features, and it 
+is trained in a layerwise greedy fashion.
+
+## Methodology
+### Autoencoder
