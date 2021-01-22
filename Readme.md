@@ -80,13 +80,34 @@ Entropy shows how much uncertainty is in our distribution. Cross entropy of two 
 the same and will differ by some amount of bits if they are different. KL is cross entropy minus entropy which means how
 much two distributions differ.
 
+## Vanishing Gradient Problem
+As the number of hidden layers is increased, the amount of error information propagated back to earlier layers is 
+dramatically reduced. This means that weights in hidden layers close to the output layer are updated normally, whereas 
+weights in hidden layers close to the input layer are updated minimally or not at all. This problem prevented the 
+training of very deep neural networks and was referred to as the vanishing gradient problem.
+
 ## Greedy Layer-Wise Pretraining in Deep Learning
+### Layer-wise term 
+Pretraining involves successively adding a new hidden layer to a model and refitting, allowing the newly 
+added model to learn the inputs from the existing hidden layer, often while keeping the weights for the existing hidden 
+layers fixed. This gives the technique the name “layer-wise” as the model is trained one layer at a time.<br/>
+### Greedy
+Dividing the training process into a succession of layer-wise training processes is seen as a greedy shortcut 
+that likely leads to an aggregate of locally optimal solutions, a shortcut to a good enough global solution.
+### Supervised and Unsupervised Pretraining
+Supervised pretraining involves successively adding hidden layers to a model trained on a supervised learning task. 
+Unsupervised pretraining involves using the greedy layer-wise process to build up an unsupervised autoencoder model, 
+to which a supervised output layer is later added.
+**Note**: It is almost necessary to fine tune the weights in the network after pretraining. As such, this allows 
+pretraining to be considered a type of weight initialization method.
+
+## Fine-tuning
+
 
 ## Summary Of The Work
 Deep learning algorithms are used to extract inherent features in data and they can discover huge amounts of structure 
 in the data. As a traffic flow process is complicated in nature, deep learning algorithms can represent traffic features
 without prior knowledge. We want to use a stacked autoencoder (SAE) model to learn generic traffic flow features, and it 
-is trained in a layerwise greedy fashion.
+is trained in a layer-wise greedy fashion.
 
-## Methodology
-### Autoencoder
+## Black Box View
