@@ -150,4 +150,31 @@ direction to obtain better results at the same time.<br/>
   function .
 
 #### Fine-tuning the whole network
+-  Initialize {Wl+1 1 , bl+1 1 } randomly or by supervised training.
+-  Use the BP method with the gradient-based optimization technique to change the whole network’s parameters in a 
+   top–down fashion.
+   
+## Experiments
+### Dataset
+This model was applied to the data collected from the Caltrans Performance Measurement System (PeMS)
+### Index of Performance
+Three performance indexes are used, the mean absoluter error(MAE), the mean relative error(MRE), and the root of mean 
+squared error(RMSE)
+### Structure of SAE Model
+We need to determine the size of the input layer, the number of hidden layers, and the number of hidden units in each 
+hidden layer. For the input layer, we use the data collected from all freeways we should also use the traffic flow data 
+at previous time intervals. Therefore, the proposed model accounts for the spatial and temporal correlations of traffic 
+flow inherently.The dimension of the input space is mr, whereas the dimension
+of the output is m, where m is the number of freeways and r is the number of previous time intervals. The parameters of 
+the structure can get different values, after performing grid search runs table 1 is obtained as best structure.
+
+## Results
+We can summarize the result in table II 
+![](tableII.png)
+
+As you can see the proposed model outperforms the BP NN, the RW, the SVM, and the RBF NN models but there as an important 
+point I want to mention, consider just the MRE column of stacked autoencoders model, you see the MRE decreases as the time
+of flow prediction increases it means that this model **Relatively** performs better on longer time predictions. So it
+makes sense that different models are good for different traffic flow predictions based on the time of prediction and it
+leads us to use different models for different predictions. 
 
