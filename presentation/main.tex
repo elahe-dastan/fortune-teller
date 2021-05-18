@@ -1,0 +1,59 @@
+\documentclass{beamer}
+
+\usetheme{metropolis}
+
+\usepackage{xecolor}
+\usepackage{datetime}
+
+\setbeamercolor{normal}{fg=darkgray}
+\setbeamercolor{title}{fg=orange}
+\setbeamercolor{frametitle}{fg=orange}
+\setbeamercolor{structure}{fg=orange}
+\setbeamercolor{normal text}{fg=darkgray,bg=white}
+\setbeamercolor{section number projected}{bg=orange,fg=white}
+
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{section in toc}[circle]
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamercolor{block body}{bg=lightgray}
+\setbeamercolor{headline}{bg=orange}
+
+\setbeamertemplate{headline}{%
+    \begin{beamercolorbox}{section in head/foot}
+        \vspace{2pt}\insertnavigation{\paperwidth}\vspace{2pt}
+    \end{beamercolorbox}
+}
+
+\newdateformat{minimaldate}{%
+  \shortmonthname[\THEMONTH] \THEYEAR}
+
+\author[elahe.dstn]{%
+  Elahe Dastan\hfill
+  9631025\\
+  \texttt{elahe.dstn@gmail.com}
+}
+\title{Traffic Prediction}
+\subtitle{with Convolutional neural network}
+\institute{Machine Learning\\Amirkabir University of Technology}
+\date{\minimaldate\today}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage{}
+\end{frame}
+\begin{frame}
+  \frametitle{Outline}
+  \tableofcontents{}
+\end{frame}
+
+\section{Introduction}
+
+\begin{frame}
+  \frametitle{Problem}
+  \par
+  a service which asks the user to select two points as source and destination on the map and
+  service can inform the user how long it takes him/her to travel from source to destination.
+\end{frame}
+
+\end{document}
