@@ -21,7 +21,7 @@ jobs:
         if: ${{ ! startsWith(github.ref, 'refs/tags/') }}
         with:
           path: presentation/main.pdf
-          name: main.pdf
+          name: presentation
           retention-days: 1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
