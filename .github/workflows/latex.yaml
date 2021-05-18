@@ -16,19 +16,19 @@ jobs:
           latexmk_use_xelatex: true
           working_directory: presentation
           root_file: main.tex
-      - name: release
-        uses: softprops/action-gh-release@v1
+      - name: upload
+        uses: actions/upload-artifact@v2
         if: ${{ ! startsWith(github.ref, 'refs/tags/') }}
         with:
-          files: main.pdf
-          name: head
-          prerelease: true
+          path: presentation/main.pdf
+          name: main.pdf
+          retention-days: 1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: release
         uses: softprops/action-gh-release@v1
         if: ${{ startsWith(github.ref, 'refs/tags/') }}
         with:
-          files: main.pdf
+          files: presentation/main.pdf
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
