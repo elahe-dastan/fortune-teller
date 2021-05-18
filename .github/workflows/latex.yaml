@@ -14,6 +14,7 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           latexmk_use_xelatex: true
+          working_directory: presentation
           root_file: main.tex
       - name: release
         uses: softprops/action-gh-release@v1
