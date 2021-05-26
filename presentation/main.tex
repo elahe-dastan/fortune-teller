@@ -1,40 +1,21 @@
 \documentclass{beamer}
 
-\usetheme{metropolis}
+\usetheme[secheader]{Boadilla}
 
 \usepackage{xecolor}
 \usepackage{datetime}
 
-\setbeamercolor{normal}{fg=darkgray}
-\setbeamercolor{title}{fg=orange}
-\setbeamercolor{frametitle}{fg=orange}
-\setbeamercolor{structure}{fg=orange}
-\setbeamercolor{normal text}{fg=darkgray,bg=white}
-\setbeamercolor{section number projected}{bg=orange,fg=white}
-
-\setbeamertemplate{footline}[frame number]
-\setbeamertemplate{section in toc}[circle]
-\setbeamertemplate{blocks}[rounded][shadow=true]
-\setbeamercolor{block body}{bg=lightgray}
-\setbeamercolor{headline}{bg=orange}
-
-\setbeamertemplate{headline}{%
-    \begin{beamercolorbox}{section in head/foot}
-        \vspace{2pt}\insertnavigation{\paperwidth}\vspace{2pt}
-    \end{beamercolorbox}
-}
-
 \newdateformat{minimaldate}{%
   \shortmonthname[\THEMONTH] \THEYEAR}
 
-\author[elahe.dstn]{%
+\author[Elahe Dastan]{%
   Elahe Dastan\hfill
   9631025\\
   \texttt{elahe.dstn@gmail.com}
 }
 \title{Traffic Prediction}
 \subtitle{with Convolutional neural network}
-\institute{Machine Learning\\Amirkabir University of Technology}
+\institute[AUT]{Machine Learning\\Amirkabir University of Technology}
 \date{\minimaldate\today}
 
 \begin{document}
