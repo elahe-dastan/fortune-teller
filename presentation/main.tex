@@ -31,6 +31,11 @@
 \section{Introduction}
 
 \begin{frame}
+  \frametitle{Outline}
+  \tableofcontents{}
+\end{frame}
+
+\begin{frame}
   \frametitle{Goal}
 	\begin{columns}
 		\column{.5\textwidth}
@@ -61,6 +66,44 @@
 		\textbf{Neshan}\\
 		\textit{Neshan Maps Platform}
 	\end{columns}
+\end{frame}
+\begin{frame}
+  \frametitle{Definition}
+  \begin{equation}
+    \label{eq:base}
+    \hat{v}_{t+1}, \ldots,  \hat{v}_{t+H} = \mathop{\mathrm{argmax}} \log \mathsf{P}({v}_{t+1}, \ldots,  v_{t+H} | v_{t-M+1} , \ldots,  v_{t})
+  \end{equation}
+  \centering
+  \includegraphics[height=.5\textheight]{img/base.png}
+\end{frame}
+
+\section{Solution}
+
+\begin{frame}
+  \frametitle{Outline}
+  \tableofcontents{}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Distance}
+  \begin{equation}
+    W_{i,j} = \left\{
+      \begin{array}{ll}
+        \exp(-\frac{d^{2}_{ij}}{\sigma^{2}}) & , i \neq j \quad and \quad \exp(-\frac{d^{2}_{ij}}{\sigma^{2}}) \geq \epsilon \\
+        0 & , otherwise. \\
+      \end{array}\right.
+    \label{eq:distance}
+  \end{equation}
+\end{frame}
+\begin{frame}
+  \frametitle{Architecture}
+  \centering
+  \includegraphics[height=\textheight]{img/blocks.png}
+\end{frame}
+\begin{frame}
+  \frametitle{Architecture}
+  \centering
+  \includegraphics[height=\textheight]{img/inner-blocks.png}
 \end{frame}
 
 \end{document}
