@@ -1,8 +1,8 @@
 \documentclass{beamer}
 
 \usetheme[secheader]{Boadilla}
+\usecolortheme{crane}
 
-\usepackage{xecolor}
 \usepackage{datetime}
 
 \newdateformat{minimaldate}{%
@@ -18,32 +18,37 @@
 \institute[AUT]{Machine Learning\\Amirkabir University of Technology}
 \date{\minimaldate\today}
 
+\AtBeginSection[]
+{
+    \begin{frame}
+        \frametitle{Outline}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+
 \begin{document}
 
 \begin{frame}
   \titlepage{}
 \end{frame}
 \begin{frame}
-  \frametitle{Outline}
-  \tableofcontents{}
+	\frametitle{Outline}
+	\tableofcontents{}
 \end{frame}
 
 \section{Introduction}
 
 \begin{frame}
-  \frametitle{Outline}
-  \tableofcontents{}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Goal}
-	\begin{columns}
+	\frametitle{Goal}
+	\begin{columns}[t]
 		\column{.5\textwidth}
-		\par
-		a service which asks the user to select two points as source and destination on the map and
-		service can inform the user how long it takes him/her to travel from source to destination.
+			\begin{definition}
+				a service which asks the user to select two points as source and destination on the map and
+				service can inform the user \alert{how long it takes} him/her to travel from source to destination.
+			\end{definition}
+		\pause
 		\column{.5\textwidth}
-		\includegraphics[height=0.5\textheight]{./img/intro.png}
+			\includegraphics[height=0.5\textheight]{./img/intro.png}
 	\end{columns}
 \end{frame}
 \begin{frame}
@@ -78,11 +83,6 @@
 \end{frame}
 
 \section{Solution}
-
-\begin{frame}
-  \frametitle{Outline}
-  \tableofcontents{}
-\end{frame}
 
 \begin{frame}
   \frametitle{Distance}
