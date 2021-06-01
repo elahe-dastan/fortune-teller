@@ -26,6 +26,9 @@
     \end{frame}
 }
 
+\usepackage[style=numeric,sorting=ynt]{biblatex}
+\addbibresource{main.bib}
+
 \begin{document}
 
 \begin{frame}
@@ -73,7 +76,7 @@
 	\end{columns}
 \end{frame}
 \begin{frame}
-  \frametitle{Challenges}
+	\frametitle{Challenges\footnote{\fullcite{2004.08555}}}
   \begin{itemize}
       \item Traffic data is spatio-temporal
       \begin{itemize}
@@ -82,7 +85,8 @@
       \end{itemize}
       \item External factors
   \end{itemize}
-  \includegraphics[height=0.5\textheight]{./img/correlations.png}
+  \centering
+	\includegraphics[height=0.5\textheight]{./img/correlations.png}
 \end{frame}
 \begin{frame}
   \begin{itemize}
@@ -103,6 +107,7 @@
 \section{Solution}
 
 \begin{frame}
+	\frametitle{Introduction\footnote{\fullcite{1709.04875}}}
   After years of continuous researches, the research on traffic prediction has achieved great progresses.
   \begin{itemize}
     \item traditional methods: Classical Statistical Methods and Machine Learning Methods
@@ -129,6 +134,10 @@
   \frametitle{Architecture}
   \centering
   \includegraphics[height=\textheight]{img/inner-blocks.png}
+\end{frame}
+\begin{frame}[allowframebreaks]
+	\frametitle{References}
+	\printbibliography
 \end{frame}
 
 \end{document}
