@@ -5,6 +5,7 @@ on:
     paths:
       - .github/workflows/latex.yaml
       - presentation/**
+      - proposal/**
 jobs:
   build:
     runs-on: ubuntu-latest
