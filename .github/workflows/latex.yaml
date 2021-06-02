@@ -6,29 +6,37 @@ on:
       - .github/workflows/latex.yaml
       - presentation/**
 jobs:
-  build_latex:
+  build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        resource:
+          - proposal
+          - presentation
     steps:
       - uses: actions/checkout@v2
-      - name: compile resume in latex
+      - name: compile ${{ matrix.resource }} in latex
         uses: xu-cheng/latex-action@v2
         with:
           latexmk_use_xelatex: true
-          working_directory: presentation
+          working_directory: ${{ matrix.resource }}
           root_file: main.tex
       - name: upload
         uses: actions/upload-artifact@v2
         if: ${{ ! startsWith(github.ref, 'refs/tags/') }}
         with:
-          path: presentation/main.pdf
-          name: presentation
+          path: ${{ matrix.resource }}/main.pdf
+          name: ${{ matrix.resource }}
           retention-days: 1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: rename
+        run: mv ${{ matrix.resource }}/main.pdf ${{ matrix.resource }}.pdf
       - name: release
-        uses: softprops/action-gh-release@v1
+        uses: ncipollo/release-action@v1
         if: ${{ startsWith(github.ref, 'refs/tags/') }}
         with:
-          files: presentation/main.pdf
+          artifact: ${{ matrix.resource }}.pdf
+          allowUpdates: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
