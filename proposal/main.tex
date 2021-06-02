@@ -6,7 +6,12 @@
 \usepackage[localise,Kashida]{xepersian}
 
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
-\settextfont{Vazir}
+\settextfont[
+  Path=fonts/,
+  UprightFont = *-Regular,
+  BoldFont = *-Bold,
+  ItalicFont = *-Variable
+]{Vazir}
 
 \begin{document}
 
