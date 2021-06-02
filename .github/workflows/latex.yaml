@@ -39,5 +39,4 @@ jobs:
         with:
           artifact: ${{ matrix.resource }}.pdf
           allowUpdates: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
