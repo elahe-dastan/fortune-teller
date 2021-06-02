@@ -41,6 +41,7 @@
 
 \section{Introduction}
 
+\iffalse
 \begin{frame}
 	\frametitle{Goal}
 	\begin{columns}[t]
@@ -51,6 +52,23 @@
 			\end{definition}
 		\pause
 		\column{.5\textwidth}
+			\includegraphics[height=0.5\textheight]{./img/intro.png}
+	\end{columns}
+\end{frame}
+\fi
+\begin{frame}
+	\frametitle{Goal}
+	\begin{columns}
+		\column{.5\textwidth}
+			\begin{definition}
+				predict the speed of traffic in a specific geographical coordinate at a specific time.
+			\end{definition}
+			\pause
+			\begin{example}
+				assume you want to go to the university and you want to know the speed of traffic at theater shahr on sunday at 9 am.
+			\end{example}
+		\pause
+		\column{.45\textwidth}
 			\includegraphics[height=0.5\textheight]{./img/intro.png}
 	\end{columns}
 \end{frame}
@@ -89,6 +107,7 @@
 	\includegraphics[height=0.5\textheight]{./img/correlations.png}
 \end{frame}
 \begin{frame}
+	\frametitle{How to Calculate Speed?}
   \begin{itemize}
       \item so many people have the app on their cellphones and with the access to their GPSs the traffic flow in a certain street can be estimated periodically
       \item by remembering the traffic flow at the same street at the same day and time in previous weeks the app has a historical model that can be used
@@ -113,6 +132,15 @@
     \item traditional methods: Classical Statistical Methods and Machine Learning Methods
     \item deep learning-based methods: Spatial Dependency Modeling and Temporal Dependency Modeling
   \end{itemize}
+\end{frame}
+\begin{frame}
+	\frametitle{Convolution}
+	\begin{columns}
+		\column{0.5\textwidth}
+			\includegraphics[width=\textwidth]{img/2d.png}
+		\column{0.5\textwidth}
+			\includegraphics[width=\textwidth]{img/spectral.png}
+	\end{columns}
 \end{frame}
 \begin{frame}
   \frametitle{Distance}
