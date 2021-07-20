@@ -3,6 +3,7 @@
 \usepackage{tocloft}
 \usepackage[top=2.5cm, bottom=2.5cm, left=2.2cm, right=2.2cm]{geometry}
 \usepackage{graphicx}
+\usepackage{amsmath}
 \usepackage[localise,Kashida]{xepersian}
 
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
@@ -372,8 +373,25 @@ $k$ اندازه کرنل در پیچش گراف است که شعاع بیشین
   \Theta(\varLambda) \approx \sum_{k=1}^{k-1}\Theta_{k}T_{k}(\widetilde{\varLambda})
 \]
 \[
-  \widetilde{\varLambda} = \frag{2\widetilde{\varLambda}}{\lambda_{\max}} - I_{n}
+  \widetilde{\varLambda} = \frac{2\widetilde{\varLambda}}{\lambda_{\max}} - I_{n}
 \]
+
+حال می‌توانیم پیچش روی گراف را اینگونه بازنویسی کنیم:
+
+\begin{equation}
+  \Theta \ast_{g} x = \Theta(L)x \approx \sum_{k=0}^{k-1} \Theta_{k} T_{k}(\widetilde{L})x
+  \label{eq:approx-convolution}
+\end{equation}
+
+$T_{k}(\widetilde{L} \in R^{n \times n})$ چند جمله‌ای چبیشف از مرتبه‌ی $k$ است که به وسیله‌ی لاپلاس انبساطی محاسبه می‌شود.
+
+\[
+  \widetilde{L} = \frac{2\widetilde{L}}{\lambda_{\max}} - I_{n}
+\]
+
+از تقریب چند جمله‌ای استفاده می‌کنیم و به طور بازگشتی $k$ پیچش‌های محلی را محاسبه می‌کنیم. اینگونه می‌توانیم رابطه‌ی \رجوع{eq:convolution}
+را با رابطه‌ی \رجوع{eq:approx-convolution} تخمین بزنیم و پیچیدگی محاسباتی را از $O(n^{2})$ به $O(k|\epsilon|)$
+کاهش دهیم.
 
 \پاراگراف{}
 در مسائل سری زمانی، شبکه‌های عصبی بازگشتی بسیار رایج‌اند اما در مسایل ترافیک استفاده از این شبکه‌ها بسیار زمان‌بر است.
