@@ -20,10 +20,10 @@
 
 \AtBeginSection[]
 {
-    \begin{frame}
-        \frametitle{Outline}
-        \tableofcontents[currentsection]
-    \end{frame}
+  \begin{frame}
+    \frametitle{Outline}
+    \tableofcontents[currentsection]
+  \end{frame}
 }
 
 \usepackage[style=numeric,sorting=ynt]{biblatex}
@@ -35,82 +35,92 @@
   \titlepage{}
 \end{frame}
 \begin{frame}
-	\frametitle{Outline}
-	\tableofcontents{}
+  \frametitle{Outline}
+  \tableofcontents{}
 \end{frame}
 
 \section{Introduction}
 
 \iffalse
 \begin{frame}
-	\frametitle{Goal}
-	\begin{columns}[t]
-		\column{.5\textwidth}
-			\begin{definition}
-				a service which asks the user to select two points as source and destination on the map and
-				service can inform the user \alert{how long it takes} him/her to travel from source to destination.
-			\end{definition}
-		\pause
-		\column{.5\textwidth}
-			\includegraphics[height=0.5\textheight]{./img/intro.png}
-	\end{columns}
+  \frametitle{Goal}
+  \begin{columns}[t]
+    \column{.5\textwidth}
+    \begin{definition}
+      a service which asks the user to select two points as source and destination on the map and
+      service can inform the user \alert{how long it takes} him/her to travel from source to destination.
+    \end{definition}
+    \pause
+    \column{.5\textwidth}
+    \includegraphics[height=0.5\textheight]{./img/intro.png}
+  \end{columns}
 \end{frame}
 \fi
 \begin{frame}
-	\frametitle{Goal}
-	\begin{columns}
-		\column{.5\textwidth}
-			\begin{definition}
-				predict the speed of traffic in a specific geographical coordinate at a specific time.
-			\end{definition}
-			\pause
-			\begin{example}
-				assume you want to go to the university and you want to know the speed of traffic at theater shahr on sunday at 9 am.
-			\end{example}
-		\pause
-		\column{.45\textwidth}
-			\includegraphics[height=0.5\textheight]{./img/intro.png}
-	\end{columns}
+  \frametitle{Ideal Goal}
+  \begin{block}{}
+    How long it takes someone to travel from a source point to a destination point
+  \end{block}
+\end{frame}
+\begin{frame}
+  \frametitle{Goal}
+  \begin{columns}
+    \column{.5\textwidth}
+    \begin{definition}
+      predict the speed of traffic in a specific geographical coordinate at a specific time.
+    \end{definition}
+    \pause
+    \begin{example}
+      assume you want to go to the university and you want to know the speed of traffic at Theater Shahr on sunday at 9 am.
+    \end{example}
+    \pause
+    \column{.45\textwidth}
+    \includegraphics[height=0.5\textheight]{./img/intro.png}
+  \end{columns}
+\end{frame}
+\begin{frame}
+  \frametitle{Previous Works}
+  \includegraphics[height=0.5\textheight]{./img/previous-works.png}
 \end{frame}
 \begin{frame}
   \frametitle{This is done before}
-	\begin{columns}
-		\column{.25\textwidth}
-		\includegraphics[height=0.5\textheight]{./img/google-maps.png}
-		\textbf{Google Maps}\\
-		\textit{Google}
-		\column{.25\textwidth}
-		\includegraphics[height=0.5\textheight]{./img/waze.png}
-		\textbf{Waze}\\
-		\textit{Google}
-		\column{.25\textwidth}
-		\includegraphics[height=0.5\textheight]{./img/balad.png}
-		\textbf{Balad}\\
-		\textit{Naghshe Pardazan Ertabatat Novin}
-		\column{.25\textwidth}
-		\includegraphics[height=0.5\textheight]{./img/neshan.png}
-		\textbf{Neshan}\\
-		\textit{Neshan Maps Platform}
-	\end{columns}
+  \begin{columns}
+    \column{.25\textwidth}
+    \includegraphics[height=0.5\textheight]{./img/google-maps.png}
+    \textbf{Google Maps}\\
+    \textit{Google}
+    \column{.25\textwidth}
+    \includegraphics[height=0.5\textheight]{./img/waze.png}
+    \textbf{Waze}\\
+    \textit{Google}
+    \column{.25\textwidth}
+    \includegraphics[height=0.5\textheight]{./img/balad.png}
+    \textbf{Balad}\\
+    \textit{Naghshe Pardazan Ertabatat Novin}
+    \column{.25\textwidth}
+    \includegraphics[height=0.5\textheight]{./img/neshan.png}
+    \textbf{Neshan}\\
+    \textit{Neshan Maps Platform}
+  \end{columns}
 \end{frame}
 \begin{frame}
-	\frametitle{Challenges\footnote{\fullcite{2004.08555}}}
+  \frametitle{Challenges\footnote{\fullcite{2004.08555}}}
   \begin{itemize}
-      \item Traffic data is spatio-temporal
-      \begin{itemize}
-        \item Complex spatial dependencies
-        \item Dynamic temporal dependencies
-      \end{itemize}
-      \item External factors
+    \item Traffic data is spatio-temporal
+          \begin{itemize}
+            \item Complex spatial dependencies
+            \item Dynamic temporal dependencies
+          \end{itemize}
+    \item External factors
   \end{itemize}
   \centering
-	\includegraphics[height=0.5\textheight]{./img/correlations.png}
+  \includegraphics[height=0.5\textheight]{./img/correlations.png}
 \end{frame}
 \begin{frame}
-	\frametitle{How to Calculate Speed?}
+  \frametitle{How to Calculate Speed?}
   \begin{itemize}
-      \item so many people have the app on their cellphones and with the access to their GPSs the traffic flow in a certain street can be estimated periodically
-      \item by remembering the traffic flow at the same street at the same day and time in previous weeks the app has a historical model that can be used
+    \item so many people have the app on their cellphones and with the access to their GPSs the traffic flow in a certain street can be estimated periodically
+    \item by remembering the traffic flow at the same street at the same day and time in previous weeks the app has a historical model that can be used
   \end{itemize}
 \end{frame}
 \begin{frame}
@@ -122,11 +132,19 @@
   \centering
   \includegraphics[height=.5\textheight]{img/base.png}
 \end{frame}
+\begin{frame}
+  \frametitle{Defining the Graph}
+  \includegraphics[width=\textwidth]{img/convolution.png}
+  \begin{itemize}
+    \item the closer the node the greater the correlation
+    \item weight matrix dimension is $nxn$
+  \end{itemize}
+\end{frame}
 
 \section{Solution}
 
 \begin{frame}
-	\frametitle{Introduction\footnote{\fullcite{1709.04875}}}
+  \frametitle{Introduction\footnote{\fullcite{1709.04875}}}
   After years of continuous researches, the research on traffic prediction has achieved great progresses.
   \begin{itemize}
     \item traditional methods: Classical Statistical Methods and Machine Learning Methods
@@ -134,8 +152,25 @@
   \end{itemize}
 \end{frame}
 \begin{frame}
-	\frametitle{Spatial Dependency}
-	\includegraphics[width=\textwidth]{img/convolution.png}
+  \frametitle{Spectral Graph Convolution}
+  \begin{equation}
+    \Theta *_{g} \chi = \Theta(L)\chi = \Theta(U \Lambda U^{T})\chi = U\Theta(\Lambda)U^{T}\chi
+    \label{eq:convolution}
+  \end{equation}
+  \begin{itemize}
+    \item computational complexity is $O(n^{2})$
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Chebyshev Polynomials}
+  \begin{equation}
+    \Theta \ast_{g} x = \Theta(L)x \approx \sum_{k=0}^{k-1} \Theta_{k} T_{k}(\widetilde{L})x
+    \label{eq:approx-convolution}
+  \end{equation}
+  \begin{itemize}
+    \item reduce the complexity
+    \item localization
+  \end{itemize}
 \end{frame}
 \begin{frame}
   \frametitle{Distance}
@@ -159,8 +194,8 @@
   \includegraphics[height=\textheight]{img/inner-blocks.png}
 \end{frame}
 \begin{frame}[allowframebreaks]
-	\frametitle{References}
-	\printbibliography
+  \frametitle{References}
+  \printbibliography
 \end{frame}
 
 \end{document}
