@@ -63,9 +63,11 @@
   \برچسب{fig:time-conv}
 \پایان{شکل}
 
- \begin{lstlisting}
- SELECT * FROM predictions_by_time_15min_staging WHERE time_bucket=1826995 AND ref_bucket=10 AND ref='f6168cb90ac13a89112a6033b3047dad';
- \end{lstlisting}
+ \begin{latin}\begin{lstlisting}
+ SELECT * FROM predictions_by_time_15min_staging \
+  WHERE time_bucket=1826995 AND ref_bucket=10 \
+  AND ref='f6168cb90ac13a89112a6033b3047dad';
+ \end{lstlisting}\end{latin}
 
  \زیرقسمت{خلاصه}
  ارزیابی مدل ارائه شده بر روی دو مجموعه داده \متن‌لاتین{PeMSD7} و اسنپ انجام و نتیجه گزارش شد. ارزیابی این مدل بر روی مجموعه داده‌ی اسنپ نیازمند مراحل بسیاری برای تبدیل \متن‌لاتین{GPS} ها به سرعت بود که همگی در این بخش توضیح داده شدند.
