@@ -39,12 +39,10 @@
 
 این حالت متشکل از دو تابع است. تابع اول تجمیع کننده است که اطلاعات را از گره‌های همسایه‌می‌گیرد و آن‌ها را خلاصه می‌کند. تابع دوم به روزرسانی است که اطلاعات گره مورد بحث را با خروجی تجمیع‌کننده ترکیب می‌کند و به بازنمایی جدیدی از گره می‌رسد.
 
-
 \begin{equation}
   \label{eq:spatial}
 H_{:v}^{(l+1)}=upd(f(H_{:v}^{(l)}),agg(g(H_{:u}^{(l)}): u\in \mathcal{N}(v)))
 \end{equation}
-
 
 \begin{table}[h]
   \centering
@@ -63,19 +61,16 @@ H_{:v}^{(l+1)}=upd(f(H_{:v}^{(l)}),agg(g(H_{:u}^{(l)}): u\in \mathcal{N}(v)))
   \label{tbl:distance}
 \end{table}
 
-
 در اکثر موارد می‌توانیم شبکه‌ی عصبی گرافی مکانی را به وسیله‌ی چارچوب کلی زیر پیاده‌سازی کنیم
 
-
 \begin{equation}
-  \label{eq:spatial}
+  \label{eq:spatial_1}
 H^{(l+1)}=\sigma(\sum_{s}C^{(s)}H^{(l)}W^{(l,s)})
 \end{equation}
 
-
 \begin{table}[h]
   \centering
-  \caption{توضیح پارامترهای رابطه \رجوع{eq:spatial}}
+  \caption{توضیح پارامترهای رابطه \رجوع{eq:spatial_1}}
   \begin{tabular}{|c|p{0.5\textwidth}|}
     \hline
     $C$ & \متن‌لاتین{convolution support} \\
@@ -88,20 +83,18 @@ H^{(l+1)}=\sigma(\sum_{s}C^{(s)}H^{(l)}W^{(l,s)})
   \label{tbl:distance}
 \end{table}
 
-
 \قسمت{شبکه‌ی عصبی گرافی در دامنه‌ی طیفی}
 
 در این حالت تابع به صورت زیر تعریف می‌شود:
 
 \begin{equation}
-  \label{eq:spectral}
+  \label{eq:spectral_2}
 H_j^{l+1}=\sigma(\sum_{i=1}^{f_l}U\:diag(F_{i,j,l})U^TH_i^{(l)})
 \end{equation}
 
-
 \begin{table}[h]
   \centering
-  \caption{توضیح پارامترهای رابطه \رجوع{eq:spatial}}
+  \caption{توضیح پارامترهای رابطه \رجوع{eq:spatial_2}}
   \begin{tabular}{|c|p{0.5\textwidth}|}
     \hline
     $U$ & ماتریس بردار ویژه‌ها \\
@@ -137,7 +130,6 @@ $C^{(s)}=U\:diag(F_s(\lambda))U^T$
   h_{t}& = (1-f_{t})\odot h_{t-1}+f_{t}\odot {\hat {h}}_{t}
   \end{aligned}
 \end{equation}
-
 
 \begin{table}[h]
   \centering
