@@ -88,13 +88,13 @@ H^{(l+1)}=\sigma(\sum_{s}C^{(s)}H^{(l)}W^{(l,s)})
 در این حالت تابع به صورت زیر تعریف می‌شود:
 
 \begin{equation}
-  \label{eq:spectral_2}
+  \label{eq:spectral}
 H_j^{l+1}=\sigma(\sum_{i=1}^{f_l}U\:diag(F_{i,j,l})U^TH_i^{(l)})
 \end{equation}
 
 \begin{table}[h]
   \centering
-  \caption{توضیح پارامترهای رابطه \رجوع{eq:spatial_2}}
+  \caption{توضیح پارامترهای رابطه \رجوع{eq:sepcteral}}
   \begin{tabular}{|c|p{0.5\textwidth}|}
     \hline
     $U$ & ماتریس بردار ویژه‌ها \\
@@ -123,7 +123,7 @@ $C^{(s)}=U\:diag(F_s(\lambda))U^T$
 دو نسخه‌ی ساده و کامل از حافظه‌ی بازگشتی دروازه‌ای وجود دارد که روابط نسخه‌ی ساده‌ی آن در ادامه آورده شده است:
 
 \begin{equation}
-  \label{eq:base}
+  \label{eq:gru}
   \begin{aligned}
   f_{t}& = \sigma _{g} ( W_{f} x_{t} + U_{f} h_{t-1} + b_{f} )\\
   {\hat {h}}_{t}& = \phi _{h}(W_{h}x_{t}+U_{h}(f_{t}\odot h_{t-1})+b_{h})\\
@@ -133,7 +133,7 @@ $C^{(s)}=U\:diag(F_s(\lambda))U^T$
 
 \begin{table}[h]
   \centering
-  \caption{توضیح پارامترهای رابطه \رجوع{eq:time-conv}}
+  \caption{توضیح پارامترهای رابطه \رجوع{eq:gru}}
   \begin{tabular}{|c|p{0.5\textwidth}|}
     \hline
     $x_{t}$ & بردار ورودی \\
