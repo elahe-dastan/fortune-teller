@@ -1,27 +1,26 @@
 \documentclass{beamer}
 
+\usepackage[localise]{xepersian}
+
 \usetheme[secheader]{Boadilla}
 \usecolortheme{crane}
 
-\usepackage{datetime}
-
-\newdateformat{minimaldate}{%
-  \shortmonthname[\THEMONTH] \THEYEAR}
-
-\author[Elahe Dastan]{%
-  Elahe Dastan\hfill
-  9631025\\
-  \texttt{elahe.dstn@gmail.com}
+\author[الهه داستان]{%
+  الهه داستان\hfill
+  ۹۶۳۱۰۲۵\\
 }
-\title{Traffic Flow Prediction With Big Data}
-\subtitle{A Deep Learning Approach}
-\institute[AUT]{Machine Learning\\Amirkabir University of Technology}
-\date{\minimaldate\today}
+\title{پیش‌بینی ترافیک به وسیله شبکه‌های عصبی}
+\subtitle{%
+  پروژه کارشناسی\\
+  دکتر صفابخش
+}
+\institute[AUT]{دانشگاه صنعتی امیرکبیر}
+\date{زمستان ۱۴۰۰}
 
 \AtBeginSection[]
 {
   \begin{frame}
-    \frametitle{Outline}
+    \frametitle{فهرست}
     \tableofcontents[currentsection]
   \end{frame}
 }
@@ -34,56 +33,40 @@
 \begin{frame}
   \titlepage{}
 \end{frame}
+
 \begin{frame}
-  \frametitle{Outline}
+  \frametitle{فهرست}
   \tableofcontents{}
 \end{frame}
 
-\section{Introduction}
+\section{مقدمه}
 
-\iffalse
 \begin{frame}
-  \frametitle{Goal}
-  \begin{columns}[t]
-    \column{.5\textwidth}
-    \begin{definition}
-      a service which asks the user to select two points as source and destination on the map and
-      service can inform the user \alert{how long it takes} him/her to travel from source to destination.
-    \end{definition}
-    \pause
-    \column{.5\textwidth}
-    \includegraphics[height=0.5\textheight]{./img/intro.png}
-  \end{columns}
-\end{frame}
-\fi
-\begin{frame}
-  \frametitle{Ideal Goal}
+  \frametitle{هدف نهایی}
   \begin{block}{}
-    How long it takes someone to travel from a source point to a destination point
+    مسافرت از یک نقطه مبدا تا یک نقطه مقصد چقدر طول می‌کشد؟
   \end{block}
 \end{frame}
+
 \begin{frame}
-  \frametitle{Goal}
+  \frametitle{هدف}
   \begin{columns}
     \column{.5\textwidth}
-    \begin{definition}
-      predict the speed of traffic in a specific geographical coordinate at a specific time.
-    \end{definition}
+    \begin{block}{تعریف}
+      پیش‌بینی سرعت در یک نقطه جغرافیایی مشخص در یک زمان مشخص
+    \end{block}
     \pause
-    \begin{example}
+    \begin{block}{مثال}
       assume you want to go to the university and you want to know the speed of traffic at Theater Shahr on sunday at 9 am.
-    \end{example}
+    \end{block}
     \pause
     \column{.45\textwidth}
-    \includegraphics[height=0.5\textheight]{./img/intro.png}
+    \includegraphics[height=0.5\textheight]{./img/dijkstra.png} % replace it with digistra
   \end{columns}
 \end{frame}
+
 \begin{frame}
-  \frametitle{Previous Works}
-  \includegraphics[height=0.5\textheight]{./img/previous-works.png}
-\end{frame}
-\begin{frame}
-  \frametitle{This is done before}
+  \frametitle{چه کسانی به آن احتیاج دارند؟}
   \begin{columns}
     \column{.25\textwidth}
     \includegraphics[height=0.5\textheight]{./img/google-maps.png}
@@ -103,8 +86,9 @@
     \textit{Neshan Maps Platform}
   \end{columns}
 \end{frame}
+
 \begin{frame}
-  \frametitle{Challenges\footnote{\fullcite{2004.08555}}}
+  \frametitle{چالش‌ها\footfullcite{2004.08555}}
   \begin{itemize}
     \item Traffic data is spatio-temporal
           \begin{itemize}
@@ -116,62 +100,71 @@
   \centering
   \includegraphics[height=0.5\textheight]{./img/correlations.png}
 \end{frame}
+
 \begin{frame}
-  \frametitle{How to Calculate Speed?}
-  \begin{itemize}
-    \item so many people have the app on their cellphones and with the access to their GPSs the traffic flow in a certain street can be estimated periodically
-    \item by remembering the traffic flow at the same street at the same day and time in previous weeks the app has a historical model that can be used
-  \end{itemize}
-\end{frame}
-\begin{frame}
-  \frametitle{Definition}
+  \frametitle{تعریف مساله}
   \begin{equation}
     \label{eq:base}
     \hat{v}_{t+1}, \ldots,  \hat{v}_{t+H} = \mathop{\mathrm{argmax}} \log \mathsf{P}({v}_{t+1}, \ldots,  v_{t+H} | v_{t-M+1} , \ldots,  v_{t})
   \end{equation}
   \centering
-  \includegraphics[height=.5\textheight]{img/base.png}
+  \includegraphics[height=.5\textheight]{img/base.png} % v.drawio
 \end{frame}
+
 \begin{frame}
-  \frametitle{Defining the Graph}
+  \frametitle{تعریف گرافی}
   \includegraphics[width=\textwidth]{img/convolution.png}
   \begin{itemize}
-    \item the closer the node the greater the correlation
+    \item با نزدیک شدن گره‌ها به یکدیگر ارتباط میان آن‌ها بیشتر می‌شود
     \item weight matrix dimension is $nxn$
   \end{itemize}
 \end{frame}
 
-\section{Solution}
+\section{کارهای مرتبط}
 
 \begin{frame}
-  \frametitle{Introduction\footnote{\fullcite{1709.04875}}}
+  \frametitle{مقدمه\footfullcite{1709.04875}}
   After years of continuous researches, the research on traffic prediction has achieved great progresses.
   \begin{itemize}
     \item traditional methods: Classical Statistical Methods and Machine Learning Methods
     \item deep learning-based methods: Spatial Dependency Modeling and Temporal Dependency Modeling
   \end{itemize}
 \end{frame}
+
 \begin{frame}
-  \frametitle{Spectral Graph Convolution}
-  \begin{equation}
-    \Theta *_{g} \chi = \Theta(L)\chi = \Theta(U \Lambda U^{T})\chi = U\Theta(\Lambda)U^{T}\chi
-    \label{eq:convolution}
-  \end{equation}
+  \frametitle{کارهای مرتبط}
   \begin{itemize}
-    \item computational complexity is $O(n^{2})$
+  \فقره \متن‌سیاه{مدل خود هم‌بسته میانیگن متحرک}: تنها توالی‌های زمانی را در نظر می‌گیرند.
+  \فقره \متن‌سیاه{شبکه باور عمیق}: ویژگی‌های زمانی و مکانی را به صور مشترک سخت از ورودی استخراج می‌کند.
+  \فقره \متن‌سیاه{حافظه کوتاه مدت ماندگار}: سنگین از نظر محاسباتی
   \end{itemize}
 \end{frame}
+
+\section{راه‌حل پیشنهادی}
+
 \begin{frame}
-  \frametitle{Chebyshev Polynomials}
-  \begin{equation}
-    \Theta \ast_{g} x = \Theta(L)x \approx \sum_{k=0}^{k-1} \Theta_{k} T_{k}(\widetilde{L})x
-    \label{eq:approx-convolution}
-  \end{equation}
-  \begin{itemize}
-    \item reduce the complexity
-    \item localization
-  \end{itemize}
+  \شروع{فقرات}
+  \فقره استفاده از هر دو نوع ویژگی زمانی و مکانی
+  \فقره در نظر گرفتن مسیرها به صورت گرافی
+  \فقره اعمال پیچش به صورت مستقیم بر روی گراف در دامنه طیفی
+  \فقره اعمال پیچش بر روی محور زمان
+  \پایان{فقرات}
 \end{frame}
+
+\begin{frame}
+  \frametitle{ورودی راه حل}
+  % blackbox
+\end{frame}
+\begin{frame}
+  اطلاعات زمانی
+  % v.drawio
+\end{frame}
+\begin{frame}
+  اطلاعات مکانی
+  % matrix.drawio
+  رابطه اسلاید distance
+\end{frame}
+
 \begin{frame}
   \frametitle{Distance}
   \begin{equation}
@@ -183,18 +176,51 @@
     \label{eq:distance}
   \end{equation}
 \end{frame}
+
 \begin{frame}
   \frametitle{Architecture}
-  \centering
-  \includegraphics[height=\textheight]{img/blocks.png}
+  % arch.drawio
 \end{frame}
+
 \begin{frame}
-  \frametitle{Architecture}
-  \centering
-  \includegraphics[height=\textheight]{img/inner-blocks.png}
+  % پیچش در دامنه طیفی
+  % رابطه ۴-۲
+\end{frame}
+
+\begin{frame}
+  \frametitle{Spectral Graph Convolution}
+  \begin{equation}
+    \Theta *_{g} \chi = \Theta(L)\chi = \Theta(U \Lambda U^{T})\chi = U\Theta(\Lambda)U^{T}\chi
+    \label{eq:convolution}
+  \end{equation}
+  \begin{itemize}
+    \item computational complexity is $O(n^{2})$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Chebyshev Polynomials}
+  \begin{equation}
+    \Theta \ast_{g} x = \Theta(L)x \approx \sum_{k=0}^{k-1} \Theta_{k} T_{k}(\widetilde{L})x
+    \label{eq:approx-convolution}
+  \end{equation}
+  \begin{itemize}
+    \item reduce the complexity
+    \item localization
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  لایه‌ی پیچشی زمانی
+  رابطه ۴-۵
+\end{frame}
+
+\begin{frame}
+  پیش‌بینی چند گام زمانی آینده
 \end{frame}
 
 \section{Datasets and Evaluation}
+
 \begin{frame}
   \frametitle{PeMSD7}
   \begin{itemize}
