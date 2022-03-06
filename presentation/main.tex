@@ -82,6 +82,7 @@
   دکتر صفابخش
 }
 \institute[]{دانشگاه صنعتی امیرکبیر}
+\titlegraphic{\vspace{4.5cm}\flushleft\includegraphics[height=50pt]{img/logo}}
 \date{زمستان ۱۴۰۰}
 
 \AtBeginSection[]
@@ -338,7 +339,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{مجموعه دادگان اسنپ}
+  \frametitle{مجموعه دادگان اسنپ!}
   \شروع{فقرات}
   \لیست‌فارسی
   \فقره برگرفته از سامانه موقیعت‌یاب جهانی رانندگان
@@ -376,9 +377,10 @@
   \setcounter{enumi}{2}
   \لیست‌فارسی
   \فقره محاسبه سرعت برای هر راننده
-  % عکس ۵.۷
-  % big circle distance in google
   \پایان{شمارش}
+  \درج‌تصویر[width=0.5\textwidth]{./img/speed_per_driver.drawio.png}
+  \hfill
+  \درج‌تصویر[width=0.3\textwidth]{./img/big-circle-distance.png}
 \end{frame}
 
 \begin{frame}
@@ -412,6 +414,41 @@ Api-Key: YOUR_API_KEY
 
 \begin{frame}
   \frametitle{نتایج ارزیابی}
+  \begin{table}[h]
+    \centering
+    \caption{نتایج اجرا بر روی مجموعه داده‌ی اسنپ!}
+    \begin{latin}\begin{tabular}{|c|c|c|c|}
+      \hline
+      Model & MAE (15/30/45 min) & RMSE (15/30/45 min) \\
+      \hline
+      STGCN(Cheb) & 3.03/3.98/4.13 & 4.33/6.32/7.89 \\
+      \hline
+    \end{tabular}\end{latin}
+  \end{table}
+\end{frame}
+
+\begin{frame}
+  \frametitle{نتایج ارزیابی}
+  پیش‌بینی سرعت ترافیک برای ۱۵ دقیقه آینده در برابر سرعت‌های واقعی
+  \درج‌تصویر[height=.8\textheight]{./img/p1.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{نتایج ارزیابی}
+  پیش‌بینی سرعت ترافیک برای ۳۰ دقیقه آینده در برابر سرعت‌های واقعی
+  \درج‌تصویر[height=.8\textheight]{./img/p2.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{نتایج ارزیابی}
+  پیش‌بینی سرعت ترافیک برای ۴۵ دقیقه آینده در برابر سرعت‌های واقعی
+  \درج‌تصویر[height=.8\textheight]{./img/p3.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{نتایج ارزیابی}
+  پیش‌بینی سرعت ترافیک برای ۶۰ دقیقه آینده در برابر سرعت‌های واقعی
+  \درج‌تصویر[height=.8\textheight]{./img/p4.png}
 \end{frame}
 
 \begin{frame}
@@ -440,9 +477,16 @@ Api-Key: YOUR_API_KEY
 
 \begin{frame}[fragile]
   \frametitle{ارزیابی}
-  % bernard
+  \includegraphics[height=.5\textheight]{./img/bernard.png}
+  \scriptsize
   \begin{latin}\begin{lstlisting}
-      cassandra
+SELECT * FROM predictions_by_time_15min_staging \
+WHERE time_bucket=1828510 AND ref='bd16594f27b21e22dd897124d5f1a5b5' \
+AND ref_bucket=61;
+
+SELECT * FROM speeds_by_time_15min_staging \
+WHERE time_bucket=1828512 AND ref='bd16594f27b21e22dd897124d5f1a5b5' \
+AND ref_bucket=61;
   \end{lstlisting}\end{latin}
 \end{frame}
 
