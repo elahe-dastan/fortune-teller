@@ -3,6 +3,7 @@
 \usetheme{metropolis}
 
 \usepackage[style=numeric,sorting=ynt]{biblatex}
+\usepackage{listings}
 \usepackage[localise]{xepersian}
 
 \setlatintextfont{Roboto}
@@ -314,6 +315,10 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{نتایج ارزیابی}
+\end{frame}
+
+\begin{frame}
   \frametitle{مجموعه دادگان اسنپ}
   \شروع{فقرات}
   \لیست‌فارسی
@@ -352,6 +357,54 @@
   % تصویر خیابان تلگرام با کراپ
   \پایان{فقرات}
   \پایان{شمارش}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{اطلاعات مکانی}
+  \begin{latin}\begin{lstlisting}
+GET:
+    https://api.neshan.org/v1/distance-matrix
+      ?origins=36.3177579,59.5323219|36.337115,59.530621
+      &destinations=36.35067,59.5451965|36.337005,59.530021
+Headers:
+Api-Key: YOUR_API_KEY
+  \end{lstlisting}\end{latin}
+\end{frame}
+
+\begin{frame}
+  \frametitle{نتایج ارزیابی}
+\end{frame}
+
+\begin{frame}
+  \frametitle{ارزیابی}
+  \includegraphics[height=.5\textheight]{./img/bernard.png}
+  \begin{block}{}
+  کد در چهارچوب \متن‌لاتین{PyTorch} نوشته شده است.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{ارزیابی}
+  % software.drawio
+\end{frame}
+
+\begin{frame}
+  \frametitle{ارزیابی}
+  \شروع{فقرات}
+  \لیست‌فارسی
+  \فقره مدل ذخیره شده است.
+  \فقره مدل روی ابر برده شده است.
+  \فقره با استفاده از دستور \متن‌لاتین{Torch Server} بالا آمده است.
+  \فقره سرعت‌ها از روی \متن‌لاتین{Cassandra} خوانده شده و نتایج پیش‌بینی دوباره داخل \متن‌لاتین{Cassandra} نوشته می‌شوند.
+  \پایان{فقرات}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{ارزیابی}
+  % bernard
+  \begin{latin}\begin{lstlisting}
+      cassandra
+  \end{lstlisting}\end{latin}
 \end{frame}
 
 \begin{frame}[allowframebreaks]
