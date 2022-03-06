@@ -146,11 +146,11 @@
     \column{.25\textwidth}
     \includegraphics[height=0.5\textheight]{./img/balad.png}
     \textbf{Balad}\\
-    \textit{Naghshe Pardazan Ertabatat Novin}
+    \textit{نقشه پردازان ارتباطات نوین}
     \column{.25\textwidth}
     \includegraphics[height=0.5\textheight]{./img/neshan.png}
     \textbf{Neshan}\\
-    \textit{Neshan Maps Platform}
+    \textit{پلتفرم نقشه نشان}
   \end{columns}
 \end{frame}
 
@@ -253,43 +253,42 @@
 \end{frame}
 
 \begin{frame}
-  % پیچش در دامنه طیفی
-  % رابطه ۴-۲
-\end{frame}
-
-\begin{frame}
-  \frametitle{Spectral Graph Convolution}
+  \frametitle{پیچش در دامنه طیفی}
   \begin{equation}
     \Theta *_{g} \chi = \Theta(L)\chi = \Theta(U \Lambda U^{T})\chi = U\Theta(\Lambda)U^{T}\chi
     \label{eq:convolution}
   \end{equation}
-  \begin{itemize}
-    \item computational complexity is $O(n^{2})$
-  \end{itemize}
+  \شروع{فقرات}
+    \فقره پیچیدگی محاسباتی: $O(n^{2})$
+  \پایان{فقرات}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Chebyshev Polynomials}
+  \frametitle{چندجمله‌ای چبیشف}
   \begin{equation}
     \Theta \ast_{g} x = \Theta(L)x \approx \sum_{k=0}^{k-1} \Theta_{k} T_{k}(\widetilde{L})x
     \label{eq:approx-convolution}
   \end{equation}
-  \begin{itemize}
-    \item reduce the complexity
-    \item localization
-  \end{itemize}
+  \شروع{فقرات}
+     \لیست‌فارسی
+    \فقره کاهش پیچیدگی
+    \فقره محلی‌سازی
+  \پایان{فقرات}
 \end{frame}
 
 \begin{frame}
-  لایه‌ی پیچشی زمانی
-  رابطه ۴-۵
+  \frametitle{لایه‌ی پیچشی زمانی}
+  \begin{equation}
+    \Gamma *_{\tau} Y = P \odot \sigma (Q) \in R^{M-K_{t}+1 \times C_{O}}
+    \label{eq:time-conv}
+  \end{equation}
 \end{frame}
 
 \begin{frame}
-  پیش‌بینی چند گام زمانی آینده
+  \frametitle{پیش‌بینی چند گام زمانی آینده}
 \end{frame}
 
-\section{Datasets and Evaluation}
+\section{مجموعه‌ی داده‌ها و ارزیابی}
 
 \begin{frame}
   \frametitle{PeMSD7}
