@@ -28,7 +28,18 @@
 \usepackage[style=numeric,sorting=ynt]{biblatex}
 \addbibresource{main.bib}
 
+\setlatintextfont[
+  Path=fonts/,
+  UprightFont = *-Regular,
+  BoldFont = *-Bold,
+  ItalicFont = *-Italic
+]{Neuton}
+
+\settextfont[Path=fonts/]{BNazanin}
+
 \begin{document}
+
+\begin{persian}
 
 \begin{frame}
   \titlepage{}
@@ -235,9 +246,14 @@
     \item GPS Probes
   \end{itemize}
 \end{frame}
+
 \begin{frame}[allowframebreaks]
-  \frametitle{References}
-  \printbibliography
+  \frametitle{مراچع}
+  \begin{latin}
+  \printbibliography[title=مراجع]
+  \end{latin}
 \end{frame}
+
+\end{persian}
 
 \end{document}
