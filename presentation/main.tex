@@ -1,9 +1,75 @@
 \documentclass{beamer}
 
+\usetheme{metropolis}
+
+\usepackage[style=numeric,sorting=ynt]{biblatex}
 \usepackage[localise]{xepersian}
 
-\usetheme[secheader]{Boadilla}
-\usecolortheme{crane}
+\setlatintextfont{Roboto}
+
+\settextfont{Vazir}
+
+
+% ---------------------------------------------------------------------------------
+% Colors
+% ---------------------------------------------------------------------------------
+\definecolor{نارنجی}{rgb}{1.0, 0.31, 0.0}
+
+% ---------------------------------------------------------------------------------
+% Settings to force Beamer works with Xepersian and RTL typesetting
+% ---------------------------------------------------------------------------------
+% \raggedleft
+
+% For right to left lists (itemize and enumerate)
+\makeatletter
+\newcommand{\لیست‌فارسی}{\raggedleft\rightskip\@totalleftmargin}
+\makeatother
+% Correct the bullet for RTL texts
+\setbeamertemplate{itemize item}{\scriptsize\raise1.25pt%
+  \hbox{\donotcoloroutermaths$\blacktriangleleft$}}
+
+% To force beamer use numbering in captions
+\setbeamertemplate{caption}[numbered]{}% Number float-like environments
+
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{section in toc}[circle]
+\setbeamercolor{block body}{bg=lightgray}
+\setbeamercolor{headline}{bg=orange}
+\setbeamersize{text margin left=1cm,text margin right=1cm}
+
+\setbeamertemplate{headline}
+{
+  \begin{beamercolorbox}{section in head/foot}
+    \vspace{2pt}\insertnavigation{\paperwidth}\vspace{2pt}
+  \end{beamercolorbox}
+}
+
+% ---------------------------------------------------------------------------------
+% To force beamer use numbering in captions
+\setbeamertemplate{caption}[numbered]{}% Number float-like environments
+
+\setbeamertemplate{footline}
+{%
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+      \usebeamerfont{author in head/foot}\insertshortauthor%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+      \usebeamerfont{title in head/foot}\insertshorttitle%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+      \usebeamerfont{date in head/foot}\insertsection\hspace*{2em}
+      \insertframenumber~ از \inserttotalframenumber{} \hspace*{2ex}%
+    \end{beamercolorbox}
+  }%
+}
+\setbeamertemplate{section in toc}[circle]
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\setbeamercolor{block title}{bg=orange}
+\setbeamercolor{block body}{bg=lightgray}
+\setbeamersize{text margin left=1cm,text margin right=1cm}
+\setbeamertemplate{frametitle continuation}{\insertcontinuationcount}
 
 \author[الهه داستان]{%
   الهه داستان\hfill
@@ -14,7 +80,7 @@
   پروژه کارشناسی\\
   دکتر صفابخش
 }
-\institute[AUT]{دانشگاه صنعتی امیرکبیر}
+\institute[]{دانشگاه صنعتی امیرکبیر}
 \date{زمستان ۱۴۰۰}
 
 \AtBeginSection[]
@@ -25,17 +91,7 @@
   \end{frame}
 }
 
-\usepackage[style=numeric,sorting=ynt]{biblatex}
 \addbibresource{main.bib}
-
-\setlatintextfont[
-  Path=fonts/,
-  UprightFont = *-Regular,
-  BoldFont = *-Bold,
-  ItalicFont = *-Italic
-]{Neuton}
-
-\settextfont[Path=fonts/]{BNazanin}
 
 \begin{document}
 
@@ -72,7 +128,7 @@
     \end{block}
     \pause
     \column{.45\textwidth}
-    \includegraphics[height=0.5\textheight]{./img/dijkstra.png} % replace it with digistra
+    \includegraphics[height=0.5\textheight]{./img/dijkstra.png}
   \end{columns}
 \end{frame}
 
@@ -100,14 +156,16 @@
 
 \begin{frame}
   \frametitle{چالش‌ها\footfullcite{2004.08555}}
-  \begin{itemize}
-    \item Traffic data is spatio-temporal
-          \begin{itemize}
-            \item Complex spatial dependencies
-            \item Dynamic temporal dependencies
-          \end{itemize}
-    \item External factors
-  \end{itemize}
+  \شروع{فقرات}
+  \لیست‌فارسی
+  \فقره داده ترافیکی به صورت زمانی-مکانی است.
+  \شروع{فقرات}
+  \لیست‌فارسی
+  \فقره وابستگی‌های مکانی پیچیده
+  \فقره وابستگی‌های زمانی پیچیده
+  \پایان{فقرات}
+  \فقره فاکتورهای خارجی
+  \پایان{فقرات}
   \centering
   \includegraphics[height=0.5\textheight]{./img/correlations.png}
 \end{frame}
@@ -248,7 +306,7 @@
 \end{frame}
 
 \begin{frame}[allowframebreaks]
-  \frametitle{مراچع}
+  \frametitle{مراجع}
   \begin{latin}
   \printbibliography[title=مراجع]
   \end{latin}
