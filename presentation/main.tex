@@ -8,7 +8,7 @@
 
 \setlatintextfont{Roboto}
 
-\settextfont{Vazir}
+\settextfont{Vazirmatn}
 
 
 % ---------------------------------------------------------------------------------
@@ -123,11 +123,11 @@
   \begin{columns}
     \column{.5\textwidth}
     \begin{block}{تعریف}
-      پیش‌بینی سرعت در یک نقطه جغرافیایی مشخص در یک زمان مشخص
+      پیش‌بینی سرعت ترافیک در یک نقطه جغرافیایی مشخص در یک زمان مشخص
     \end{block}
     \pause
     \begin{block}{مثال}
-      assume you want to go to the university and you want to know the speed of traffic at Theater Shahr on sunday at 9 am.
+      فرض کنید که قصد دارید به دانشگاه بریود و می‌خواهید سرعت ترافیک در تئاتر شهر ساعت ۸ صبح را بدانید.
     \end{block}
     \pause
     \column{.45\textwidth}
@@ -165,8 +165,12 @@
   \فقره داده ترافیکی به صورت زمانی-مکانی
   \شروع{فقرات}
   \لیست‌فارسی
-  \فقره وابستگی‌های مکانی پیچیده
   \فقره وابستگی‌های زمانی پیچیده
+  \فقره وابستگی‌های مکانی پیچیده
+  \شروع{فقرات}
+  \لیست‌فارسی
+  \فقره با نزدیک شدن گره‌ها به یکدیگر ارتباط میان آن‌ها بیشتر می‌شود
+  \پایان{فقرات}
   \پایان{فقرات}
   \پایان{فقرات}
   \centering
@@ -185,10 +189,8 @@
 
 \begin{frame}
   \frametitle{تعریف گرافی}
-  \includegraphics[width=\textwidth]{img/convolution.png}
   \شروع{فقرات}
      \لیست‌فارسی
-    \فقره با نزدیک شدن گره‌ها به یکدیگر ارتباط میان آن‌ها بیشتر می‌شود
     \فقره ابعاد ماتریس وزن‌ها: $nxn$
   \پایان{فقرات}
 \end{frame}
@@ -197,20 +199,15 @@
 
 \begin{frame}
   \frametitle{مقدمه\cite{1709.04875}}
-  بعد از سال‌ها تحقیق پیوسته، تحقیقات در حوزه پیش‌بینی ترافیک پیشرفت زیادی داشته است.
-  \شروع{فقرات}
-  \لیست‌فارسی
-  \فقره روش‌های سنتی: روش‌های آماری کلاسیک و روش‌های یادگیری ماشین
-  \فقره روش‌های مبتنی بر یادگیری عمیق: مدل‌سازی وابستگی مکانی و زمانی
-  \پایان{فقرات}
+  \includegraphics[width=\textwidth]{./img/past.png}
 \end{frame}
 
 \begin{frame}
   \frametitle{کارهای مرتبط}
   \شروع{فقرات}
   \لیست‌فارسی
-  \فقره \متن‌سیاه{مدل خود هم‌بسته میانیگن متحرک}: تنها توالی‌های زمانی را در نظر می‌گیرند.
-  \فقره \متن‌سیاه{شبکه باور عمیق}: ویژگی‌های زمانی و مکانی را به صور مشترک سخت از ورودی استخراج می‌کند.
+  \فقره \متن‌سیاه{شبکه باور عمیق و کد کننده خودکار پشته‌ای}: برای این شبکه‌های متراکم
+  سخت است که ویژگی‌های زمانی و مکانی را به صورت مشترک از ورودی استخراج کنند.
   \فقره \متن‌سیاه{حافظه کوتاه مدت ماندگار}: سنگین از نظر محاسباتی
   \پایان{فقرات}
 \end{frame}
@@ -272,20 +269,14 @@
     \label{eq:convolution}
   \end{equation}
   \شروع{فقرات}
+    \لیست‌فارسی
     \فقره پیچیدگی محاسباتی: $O(n^{2})$
-  \پایان{فقرات}
-\end{frame}
-
-\begin{frame}
-  \frametitle{چندجمله‌ای چبیشف}
-  \begin{equation}
-    \Theta \ast_{g} x = \Theta(L)x \approx \sum_{k=0}^{k-1} \Theta_{k} T_{k}(\widetilde{L})x
-    \label{eq:approx-convolution}
-  \end{equation}
-  \شروع{فقرات}
-     \لیست‌فارسی
-    \فقره کاهش پیچیدگی
-    \فقره محلی‌سازی
+    \فقره چند جمله‌ای چبیشف
+    \شروع{فقرات}
+        \لیست‌فارسی
+      \فقره کاهش پیچیدگی
+      \فقره محلی‌سازی
+    \پایان{فقرات}
   \پایان{فقرات}
 \end{frame}
 
@@ -314,29 +305,6 @@
   \فقره ماه‌های جون و می ۲۰۱۲
   \فقره برگرفته از سنسورها
   \پایان{فقرات}
-\end{frame}
-
-\begin{frame}
-  \frametitle{نتایج ارزیابی}
-  \begin{table}[h]
-    \centering
-    \caption{نتایج اجرا بر روی مجموعه داده‌ی \متن‌لاتین{PeMSD7}}
-    \begin{latin}\begin{tabular}{|c|c|c|c|}
-      \hline
-      Model & MAE (15/30/45 min) & RMSE (15/30/45 min) \\
-      \hline
-      ARIMA & 5.55/5.86/6.27 & 9.00/9.13/9.38 \\
-      \hline
-      FNN & 2.74/4.02/5.04 & 4.75/6.98/8.58 \\
-      \hline
-      FC-LSTM & 3.57/3.94/4.16 & 6.20/7.03/7.51 \\
-      \hline
-      GCGRU & 2.37/3.31/4.01 & 4.21/5.96/7.13 \\
-      \hline
-      STGCN(Cheb) & 2.41/3.49/3.81 & 4.27/5.93/7.03 \\
-      \hline
-    \end{tabular}\end{latin}
-  \end{table}
 \end{frame}
 
 \begin{frame}
@@ -392,7 +360,7 @@
   \فقره محاسبه سرعت کلی خیابان
   \شروع{فقرات}
   \لیست‌فارسی
-  \فقره حذف داده‌های پرت با استفاده از \متن‌لاتین{DB Scan}
+  \فقره حذف داده‌های پرت با استفاده از \متن‌لاتین{DBSCAN}
   \پایان{فقرات}
   \پایان{شمارش}
   \درج‌تصویر[width=0.5\textwidth]{./img/bd16594f27b21e22dd897124d5f1a5b5.png}
@@ -414,6 +382,53 @@ Api-Key: YOUR_API_KEY
 \end{frame}
 
 \begin{frame}
+  \frametitle{ارزیابی}
+  \includegraphics[height=.5\textheight]{./img/bernard.png}
+  \begin{block}{}
+  کد در چهارچوب \متن‌لاتین{PyTorch} نوشته شده است.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{ارزیابی}
+  \includegraphics[width=\textwidth]{./img/software.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{ارزیابی}
+  \شروع{فقرات}
+  \لیست‌فارسی
+  \فقره مدل ذخیره شده است.
+  \فقره مدل روی ابر برده شده است.
+  \فقره با استفاده از دستور \متن‌لاتین{torchserve} بالا آمده است.
+  \فقره سرعت‌ها از روی \متن‌لاتین{Cassandra} خوانده شده و نتایج پیش‌بینی دوباره داخل \متن‌لاتین{Cassandra} نوشته می‌شوند.
+  \پایان{فقرات}
+\end{frame}
+
+\begin{frame}
+  \frametitle{نتایج ارزیابی}
+  \begin{table}[h]
+    \centering
+    \caption{نتایج اجرا بر روی مجموعه داده‌ی \متن‌لاتین{PeMSD7}}
+    \begin{latin}\begin{tabular}{|c|c|c|c|}
+      \hline
+      Model & MAE (15/30/45 min) & RMSE (15/30/45 min) \\
+      \hline
+      ARIMA & 5.55/5.86/6.27 & 9.00/9.13/9.38 \\
+      \hline
+      FNN & 2.74/4.02/5.04 & 4.75/6.98/8.58 \\
+      \hline
+      FC-LSTM & 3.57/3.94/4.16 & 6.20/7.03/7.51 \\
+      \hline
+      GCGRU & 2.37/3.31/4.01 & 4.21/5.96/7.13 \\
+      \hline
+      STGCN(Cheb) & 2.41/3.49/3.81 & 4.27/5.93/7.03 \\
+      \hline
+    \end{tabular}\end{latin}
+  \end{table}
+\end{frame}
+
+\begin{frame}
   \frametitle{نتایج ارزیابی}
   \begin{table}[h]
     \centering
@@ -426,6 +441,21 @@ Api-Key: YOUR_API_KEY
       \hline
     \end{tabular}\end{latin}
   \end{table}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{ارزیابی}
+  \includegraphics[height=.5\textheight]{./img/bernard.png}
+  \scriptsize
+  \begin{latin}\begin{lstlisting}
+SELECT * FROM predictions_by_time_15min_staging \
+WHERE time_bucket=1828510 AND ref='bd16594f27b21e22dd897124d5f1a5b5' \
+AND ref_bucket=61;
+
+SELECT * FROM speeds_by_time_15min_staging \
+WHERE time_bucket=1828512 AND ref='bd16594f27b21e22dd897124d5f1a5b5' \
+AND ref_bucket=61;
+  \end{lstlisting}\end{latin}
 \end{frame}
 
 \begin{frame}
@@ -450,45 +480,6 @@ Api-Key: YOUR_API_KEY
   \frametitle{نتایج ارزیابی}
   پیش‌بینی سرعت ترافیک برای ۶۰ دقیقه آینده در برابر سرعت‌های واقعی
   \درج‌تصویر[height=.8\textheight]{./img/p4.png}
-\end{frame}
-
-\begin{frame}
-  \frametitle{ارزیابی}
-  \includegraphics[height=.5\textheight]{./img/bernard.png}
-  \begin{block}{}
-  کد در چهارچوب \متن‌لاتین{PyTorch} نوشته شده است.
-  \end{block}
-\end{frame}
-
-\begin{frame}
-  \frametitle{ارزیابی}
-  \includegraphics[width=\textwidth]{./img/software.png}
-\end{frame}
-
-\begin{frame}
-  \frametitle{ارزیابی}
-  \شروع{فقرات}
-  \لیست‌فارسی
-  \فقره مدل ذخیره شده است.
-  \فقره مدل روی ابر برده شده است.
-  \فقره با استفاده از دستور \متن‌لاتین{Torch Server} بالا آمده است.
-  \فقره سرعت‌ها از روی \متن‌لاتین{Cassandra} خوانده شده و نتایج پیش‌بینی دوباره داخل \متن‌لاتین{Cassandra} نوشته می‌شوند.
-  \پایان{فقرات}
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{ارزیابی}
-  \includegraphics[height=.5\textheight]{./img/bernard.png}
-  \scriptsize
-  \begin{latin}\begin{lstlisting}
-SELECT * FROM predictions_by_time_15min_staging \
-WHERE time_bucket=1828510 AND ref='bd16594f27b21e22dd897124d5f1a5b5' \
-AND ref_bucket=61;
-
-SELECT * FROM speeds_by_time_15min_staging \
-WHERE time_bucket=1828512 AND ref='bd16594f27b21e22dd897124d5f1a5b5' \
-AND ref_bucket=61;
-  \end{lstlisting}\end{latin}
 \end{frame}
 
 \begin{frame}[allowframebreaks]
