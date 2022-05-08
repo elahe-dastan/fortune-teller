@@ -4,12 +4,12 @@
 %%  The original file was xepersian-thesis.cls by Vafa Khalighi
 %%   __________________________________
 %%   Copyright © 2015-2018 Amirkabir University
-%%  
+%%
 %%   http://www.aut.ac.ir
-%%   http://www.parsilatex.com  
+%%   http://www.parsilatex.com
 %%   http://forum.parsilatex.com
-%% 
-%% 
+%%
+%%
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{AUTthesis}
               [08/04/2012 v0.4
@@ -149,15 +149,15 @@
 \relax
 \fi
 }
-%دستوری برای لیست نمادها 
+%دستوری برای لیست نمادها
 \newcommand{\symb}[2]{\makebox[10cm]
 {\makebox[1cm][c]{\hfill}\makebox[3cm][r]{$\displaystyle #1$}\makebox[6cm][r]{#2}}\newline}
 
 \newcommand{\exam}[2]{\makebox[12cm]
 {\makebox[2cm][c]{\hfill}\makebox[4cm][r]{#1} \ \  \makebox[6cm][r]{#2}}\newline}
 % دستوری برای تعریف واژه‌نامه انگلیسی به فارسی
-\newcommand{\englishTOfarsi}[2]{\par\bigskip\rl{#2}\dotfill\lr{#1}\par} 
-% دستوری برای تعریف واژه‌نامه فارسی به انگلیسی 
+\newcommand{\englishTOfarsi}[2]{\par\bigskip\rl{#2}\dotfill\lr{#1}\par}
+% دستوری برای تعریف واژه‌نامه فارسی به انگلیسی
 \newcommand{\farsiTOenglish}[2]{\par\bigskip#1\dotfill\lr{#2}\par}
 % دستوری برای تعریف اختصارات
 \newcommand{\abbr}[2]{\par\bigskip\lr{#2}\dotfill\lr{#1}\par}
@@ -215,30 +215,32 @@
 \font\supervisorfont=cmbxti10
 
 \newcommand{\latinvtitle}{%
-\if@bscthesis \relax
-\else
 \relax
 %-------------------------------------------------------------------------- table of En thesis
 
 %---------------------------------------------------------------------------- end of En table
 \begin{titlepage}
 \vspace{-1cm}{\includegraphics[height=3.8cm]{images/en-logo}}
-\centerline{\fontsize{18pt}{19pt}\selectfont\bf Amirkabir University of Technology}\space 
+\centerline{\fontsize{18pt}{19pt}\selectfont\bf Amirkabir University of Technology}\space
 \vskip -.2cm
 \fontsize{16pt}{17pt}\selectfont\bfseries (Tehran Polytechnic)\par \vskip .2cm
 \bfseries
-\fontsize{16pt}{17pt}\selectfont\@latinfaculty\space 
+\fontsize{16pt}{17pt}\selectfont\@latinfaculty\space
 \vskip 5mm
- \if@mscthesis
+\if@bscthesis
+BSc Thesis\par
+\else
+\if@mscthesis
 MSc Thesis\par
 \else
 Ph.D Thesis\par
+\fi
 \fi\par
 \vspace*{2cm}
 %{\fontsize{16pt}{17pt}\selectfont\bfseries Title}%\@latinsubject
 \par
 \baselineskip=.750cm
-{\Huge\@latintitle}%\titlefont 
+{\Huge\@latintitle}%\titlefont
 \baselineskip=.750cm \par
 \vskip 1.5cm
 {\bfseries\latinby}\par
@@ -292,8 +294,7 @@ Advisors
 
 \vfill
 %
-\end{titlepage}
-\fi}
+\end{titlepage}}
 
 \def\by{نگارش}
 \def\latinby{By}
@@ -303,19 +304,19 @@ Advisors
 \newpage
 \if@twocolumn\hbox{}\newpage\fi\fi\fi}
 
-%% 
-%% Copyright © 2015-2018   
-%% 
+%%
+%% Copyright © 2015-2018
+%%
 %% Distributable under the LaTeX Project Public License,
 %% version 1.3c or higher (your choice). The latest version of
 %% this license is at: http://www.latex-project.org/lppl.txt
-%% 
+%%
 %% This work is "maintained" (as per LPPL maintenance status)
-%% 
-%% 
-%% 
-%% 
-%% 
+%%
+%%
+%%
+%%
+%%
 %% Special thanks to Vafa Khalighi for his invaluable hints.
 %%
 % End of file `AUT_thesis.cls'.
